@@ -14,5 +14,22 @@ const user = {
 }
 
 test('Should render the user profile', () => {
+  render(<Home user={user} />)
 
+  const { name, motto, likes } = user
+
+  const profileName = screen.getByRole('heading', {name})
+  const profileMotto = screen.getByText(motto);
+  const interestsHeading = screen.getByRole('heading', { name: /interests/i })
+  const profileAvatar = screen.getByAltText(/avatar/i)
+  const headerImage = screen.getByAltText(/header/i)
+  const profileLikes = screen.getByRole('list')
+
+  expect(profileName).toBeInTheDocument()
+  expect(profileMotto).toBeInTheDocument()
+  expect(interestsHeading).toBeInTheDocument()
+  expect(profileAvatar).toBeInTheDocument()
+  expect(headerImage).toBeInTheDocument()
+  expect(profileLikes).toBeInTheDocument()
+  expect(profileLikes.children.length).toEqual(likes.length)
 })
