@@ -1,3 +1,6 @@
+import { screen, render } from '@testing-library/react'
+import Home from './Home'
+
 
 const user = {
   id: 1,
