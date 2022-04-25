@@ -1,5 +1,5 @@
-import { screen, render } from '@testing-library/react'
-import Home from './Home'
+import { screen, render } from '@testing-library/react';
+import Home from './Home';
 
 
 const user = {
