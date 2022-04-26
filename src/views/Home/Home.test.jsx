@@ -33,3 +33,15 @@ test('Should render the user profile', () => {
   expect(profileLikes).toBeInTheDocument()
   expect(profileLikes.children.length).toEqual(likes.length)
 })
+
+test('Should ensure the user object received as a prop in specified order', () => {
+  render(<Home user={user} />)
+  
+  expect(user).toHaveProperty('id')
+  expect(user).toHaveProperty('name')
+  expect(user).toHaveProperty('avatar')
+  expect(user).toHaveProperty('motto')
+  expect(user).toHaveProperty('likes')
+  expect(user).toHaveProperty('header')
+  expect(user).toHaveProperty('color')
+})
